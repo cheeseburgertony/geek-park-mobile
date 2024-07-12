@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const httpInstance = axios.create({
-  baseURL: 'http://geek.itheima.net/v1_0',
+  baseURL: 'http://geek.itheima.net',
   timeout: 5000
 })
 
