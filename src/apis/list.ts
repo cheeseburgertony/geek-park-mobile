@@ -1,12 +1,9 @@
 import { http } from "@/utils"
+import type { ResType } from "./shared"
 
-// 1.定义泛型
-type ResType<T> = {
-  message: string
-  data: T
-}
+
 // 2.定义具体的接口类型
-type ChannelItem = {
+export type ChannelItem = {
   id: number,
   name: string
 }
