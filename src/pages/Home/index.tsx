@@ -1,21 +1,8 @@
-import { getChannelsAPI, type ChannelItem } from "@/apis/list"
 import { Tabs } from "antd-mobile"
-import { useEffect, useState } from "react"
+import { useTabs } from "./useTabs"
 
 const Home = () => {
-  const [channelList, setChannelList] = useState<ChannelItem[]>([])
-
-  useEffect(() => {
-    const getChannelsData = async () => {
-      try {
-        const res = await getChannelsAPI()
-        setChannelList(res.data.data.channels)
-      } catch (error) {
-        throw Error('get channel error')
-      }
-    }
-    getChannelsData()
-  }, [])
+  const { channelList } = useTabs()
 
   return (
     <div>
@@ -27,8 +14,6 @@ const Home = () => {
               {/* list组件 */}
             </Tabs.Tab>
           ))}
-
-
         </Tabs>
       </div>
     </div>
