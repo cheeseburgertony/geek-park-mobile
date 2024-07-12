@@ -2,6 +2,7 @@ import { Image, InfiniteScroll, List } from 'antd-mobile'
 // mock数据
 import { useEffect, useState } from 'react'
 import { getArticlesAPI, ListRes } from '@/apis/list'
+import { useNavigate } from 'react-router-dom'
 
 type Props = {
   channelId: string
@@ -56,11 +57,18 @@ const HomeList = (props: Props) => {
     }
   }
 
+  // 点击跳转到详情页
+  const navigate = useNavigate()
+  const goToDetail = (id: string) => {
+    navigate(`/detail?id=${id}`)
+  }
+
   return (
     <>
       <List>
         {listRes.results.map((item) => (
           <List.Item
+            onClick={() => goToDetail(item.art_id)}
             key={item.art_id}
             prefix={
               <Image
